@@ -20,8 +20,8 @@ export default {
         <img src="../assets/img/logo-boolflix.png" alt="">
       </div>
 
-      <div class="search col-5 d-flex">
-          <div class="col-8">
+      <div class="search col-4 d-flex">
+          <div class="col-8 px-2">
             <input @keyup.enter="$emit('startSearch')" v-model="store.inputUser" type="text" class="form-control" id="userSearch" placeholder="search">
           </div>
         <div class="col-4">
@@ -38,6 +38,9 @@ export default {
 
 
 <style lang="scss" scoped>
+header{
+  margin-bottom: 20px;
+}
 .row{
   padding: 10px;
   display: flex;

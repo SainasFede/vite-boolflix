@@ -24,8 +24,9 @@ export default {
         }
       })
       .then(movie => {
-      console.log(movie.data);
-      listMovie = movie.data.results;
+      store.listMovie = [];
+      console.log(movie.data.results);
+      store.listMovie = movie.data.results;
       })
       axios.get(store.apiUrlSeries, {
         params:{
@@ -33,7 +34,8 @@ export default {
         }
       })
       .then(series => {
-        console.log(series.data);
+        store.listSeries = [];
+        console.log(series.data.results);
         store.listSeries = series.data.results
       })
     }
