@@ -26,7 +26,7 @@ export default {
       })
       .then(result => {
       console.log(result.data);
-      result.data = store.resultlist;
+      store.resultlist = result.data.results;
       })
       .catch (error => {
       console.log(error);

@@ -7,12 +7,12 @@ export default {
   name: 'AppMain',
   components:{
     AppCard,
-    data(){
+  },
+  data(){
       return{
         store
       }
     }
-  }
 }
 </script>
 
@@ -20,7 +20,7 @@ export default {
   <div class="container">
     <div class="row">
       <AppCard 
-      v-for="(movie, id) in store.resultlist.results"
+      v-for="(movie, id) in store.resultlist"
       :key="id"
       :movie="movie"/>
     </div>
