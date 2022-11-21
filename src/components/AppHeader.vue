@@ -14,30 +14,43 @@ export default {
 
 <template>
   <header>
+    <div class="row">
 
-    <div class="logo">
-      
-    </div>
+      <div class="logo">
+        <img src="../assets/img/logo-boolflix.png" alt="">
+      </div>
 
-    <div class="search">
-      <div class="row">
-        <div class="col-10">
-          <input @keyup.enter="$emit('startSearch')" v-model="store.inputUser" type="text" class="form-control" id="userSearch" placeholder="search">
+      <div class="search col-5 d-flex">
+          <div class="col-8">
+            <input @keyup.enter="$emit('startSearch')" v-model="store.inputUser" type="text" class="form-control" id="userSearch" placeholder="search">
+          </div>
+        <div class="col-4">
+          <select id="inputState" class="form-select">
+            <option selected>Seleziona categoria</option>
+            <option value="serie tv">Film</option>
+            <option value="serie tv">Serie TV</option>
+          </select>
         </div>
-      <div class="col-2">
-        <select id="inputState" class="form-select">
-          <option selected>Seleziona categoria</option>
-          <option value="serie tv">Film</option>
-          <option value="serie tv">Serie TV</option>
-        </select>
-      </div>
       </div>
     </div>
-
   </header>
 </template>
 
 
 <style lang="scss" scoped>
-
+.row{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  .logo{
+    width: 150px;
+    height: 30px;
+    margin: 5px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
 </style>

@@ -19,10 +19,23 @@ export default {
 <template>
   <div class="container">
     <div class="row">
+
+      <h2>Film</h2>
       <AppCard 
-      v-for="(movie, id) in store.resultlist"
+      v-for="(movie, id) in store.listMovie"
       :key="id"
-      :movie="movie"/>
+      :titolo="movie.title"
+      :lingua="movie.original_language"
+      :voto="movie.vote_average"/>
+
+      <h2>Serie TV</h2>
+      <AppCard 
+      v-for="(series, id) in store.listSeries"
+      :key="id"
+      :titolo="series.title"
+      :lingua="series.original_language"
+      :voto="series.vote_average"/>
+
     </div>
   </div>
 </template>

@@ -18,19 +18,24 @@ export default {
   },
   methods:{
     getApi(){
-      axios.get(store.apiUrl, {
+      axios.get(store.apiUrlMovie, {
         params:{
-          api_key: store.api_key,
           query: store.inputUser
         }
       })
-      .then(result => {
-      console.log(result.data);
-      store.resultlist = result.data.results;
+      .then(movie => {
+      console.log(movie.data);
+      listMovie = movie.data.results;
       })
-      .catch (error => {
-      console.log(error);
-    })
+      axios.get(store.apiUrlSeries, {
+        params:{
+          query: store.inputUser
+        }
+      })
+      .then(series => {
+        console.log(series.data);
+        store.listSeries = series.data.results
+      })
     }
   },
   mounted(){
