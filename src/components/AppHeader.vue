@@ -21,10 +21,11 @@ export default {
       </div>
 
       <div class="search col-4 d-flex">
-          <div class="col-8 px-2">
-            <input @keyup.enter="$emit('startSearch')" v-model.trim="store.inputUser" type="text" class="form-control" id="userSearch" placeholder="search">
-          </div>
-        <div class="col-4">
+        <div class="col-2 px-4"><button type="button" @click="$emit('backHome')" class="btn btn-danger btn-text-whi">Home</button></div>
+        <div class="col-6 px-2">
+          <input @keyup.enter="$emit('startSearch')" v-model.trim="store.inputUser" type="text" class="form-control" id="userSearch" placeholder="Cerca un film o una serie">
+        </div>
+        <div class="col-4 px-2">
           <select id="inputState" class="form-select">
             <option selected>Seleziona categoria</option>
             <option value="serie tv">Film</option>
@@ -49,7 +50,7 @@ header{
 }
   .logo{
     width: 150px;
-    height: 30px;
+    height: 40px;
     margin: 5px;
     img{
       width: 100%;

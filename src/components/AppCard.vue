@@ -10,7 +10,7 @@ export default {
     titolo_originale: String,
     lingua: String,
     voto: Number,
-    introduzione: String,
+    info: String,
     image: String,
   },
   components:{
@@ -38,19 +38,63 @@ export default {
 </script>
 
 <template>
-  <div class="card m-2 p-3" style="width: 18rem;">
-  <img :src="getImage" alt="">
-  <div class="card-body">
-    <h3 class="card-title">{{titolo}}</h3>
-    <h5 class="card-title"
-    v-if="titolo !== titolo_originale">{{titolo_originale}}</h5>
-    <p :class="getLanguage"></p>
-    <star-rating :rating="getVoto" increment="0.1" read-only="true" :show-rating="false" star-size="25"></star-rating>
+  <div class="boxCard">
+    <img class="img-card" :src="getImage" alt="">
+    <div class="box-overlay">
+      <h3>{{titolo}}</h3>
+      <h5 v-if="titolo !== titolo_originale">{{titolo_originale}}</h5>
+      <p class="flag" :class="getLanguage"></p>
+      <star-rating :rating="getVoto" increment="0.1" read-only="true" :show-rating="false" star-size="15"></star-rating>
+      <p class="info">{{info}}</p>
+    </div>
+    
   </div>
-</div>
 </template>
 
 
 <style lang="scss" scoped>
-  
+  .boxCard{
+    position: relative;
+    width: calc(100% / 4);
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  .box-overlay{
+    padding: 10px;
+    backdrop-filter: blur(8px);
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: calc(100% - 22px);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.65s;
+    &:hover{
+      opacity: 1.5;
+      border: 2px solid #fcbf49;
+      border-radius: 5px;
+    }
+  }
+  .flag{
+    padding-top: 20px;
+  }
+  .info{
+    margin-top: 10px;
+    font-size: 13.5px;
+    padding: 5px;
+    text-align: justify;
+  }
 </style>

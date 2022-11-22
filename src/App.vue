@@ -17,6 +17,10 @@ export default {
     AppMain,
   },
   methods:{
+    startPopular(){
+      this.getMoviePopular();
+      this.getSeriesPopular();
+    },
     getMoviePopular(){
       axios.get(store.apiPopMovie, {
         params:{
@@ -24,8 +28,9 @@ export default {
         }
       })
       .then(movie => {
-        console.log(movie.data.results);
         store.popMovie = [];
+        store.listMovie = [];
+        store.listSeries = [];
         store.popMovie = movie.data.results;
       })
     },
@@ -37,6 +42,8 @@ export default {
       })
       .then(series => {
         store.popSeries = [];
+        store.listMovie = [];
+        store.listSeries = [];
         store.popSeries = series.data.results;
       })
     },
@@ -48,7 +55,6 @@ export default {
         }
       })
       .then(movie => {
-      console.log(movie.data.results);
       store.popSeries = [];
       store.popMovie = [];
       store.listMovie = [];
@@ -69,14 +75,13 @@ export default {
     }
   },
   mounted(){
-    this.getMoviePopular();
-    this.getSeriesPopular();
+    this.startPopular();
   }
 }
 </script>
 
 <template>
-  <AppHeader @startSearch='getApi()'/>
+  <AppHeader @startSearch='getApi()' @backHome="startPopular()" />
   <AppMain />
 </template>
 
