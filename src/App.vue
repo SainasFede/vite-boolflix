@@ -24,7 +24,7 @@ export default {
         }
       })
       .then(movie => {
-        console.log(movie.data.results)
+        console.log(movie.data.results);
         store.popMovie = [];
         store.popMovie = movie.data.results;
       })
@@ -36,7 +36,6 @@ export default {
         }
       })
       .then(series => {
-        console.log(series.data.results);
         store.popSeries = [];
         store.popSeries = series.data.results;
       })
@@ -49,6 +48,9 @@ export default {
         }
       })
       .then(movie => {
+      console.log(movie.data.results);
+      store.popSeries = [];
+      store.popMovie = [];
       store.listMovie = [];
       store.listMovie = movie.data.results;
       })
@@ -59,6 +61,8 @@ export default {
         }
       })
       .then(series => {
+        store.popSeries = [];
+        store.popMovie = [];
         store.listSeries = [];
         store.listSeries = series.data.results
       })
