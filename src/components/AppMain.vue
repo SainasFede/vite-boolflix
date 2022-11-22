@@ -18,8 +18,9 @@ export default {
 
 <template>
   <div class="container">
-    <div class="row">
 
+    <div class="row"
+    v-if="store.listMovie.length > 0">
       <h2>Film</h2>
       <AppCard 
       v-for="(movie, id) in store.listMovie"
@@ -31,7 +32,8 @@ export default {
       :voto="movie.vote_average"/>
     </div>
 
-    <div class="row">
+    <div class="row"
+    v-if="store.listSeries.length > 0">
       <h2>Serie TV</h2>
       <AppCard 
       v-for="(series, id) in store.listSeries"
@@ -42,6 +44,33 @@ export default {
       :lingua="series.original_language"
       :voto="series.vote_average"/>
     </div>
+
+    <div class="row"
+    v-if="store.popMovie.length > 0">
+      <h2>Film in tendenza</h2>
+      <AppCard 
+      v-for="(movie, id) in store.popMovie"
+      :key="id"
+      :titolo_originale="movie.original_title"
+      :image="movie.poster_path"
+      :titolo="movie.name"
+      :lingua="movie.original_language"
+      :voto="movie.vote_average"/>
+    </div>
+
+    <div class="row"
+    v-if="store.popSeries.length > 0">
+      <h2>Serie TV</h2>
+      <AppCard 
+      v-for="(series, id) in store.popSeries"
+      :key="id"
+      :titolo_originale="series.original_title"
+      :image="series.poster_path"
+      :titolo="series.name"
+      :lingua="series.original_language"
+      :voto="series.vote_average"/>
+    </div>
+
   </div>
 </template>
 

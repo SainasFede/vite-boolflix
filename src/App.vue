@@ -17,31 +17,56 @@ export default {
     AppMain,
   },
   methods:{
+    getMoviePopular(){
+      axios.get(store.apiPopMovie, {
+        params:{
+          language: store.language
+        }
+      })
+      .then(movie => {
+        console.log(movie.data.results)
+        store.popMovie = [];
+        store.popMovie = movie.data.results;
+      })
+    },
+    getSeriesPopular(){
+      axios.get(store.apiPopSeries, {
+        params:{
+          language: store.language
+        }
+      })
+      .then(series => {
+        console.log(series.data.results);
+        store.popSeries = [];
+        store.popSeries = series.data.results;
+      })
+    },
     getApi(){
       axios.get(store.apiUrlMovie, {
         params:{
+          language: store.language,
           query: store.inputUser
         }
       })
       .then(movie => {
       store.listMovie = [];
-      console.log(movie.data.results);
       store.listMovie = movie.data.results;
       })
       axios.get(store.apiUrlSeries, {
         params:{
+          language: store.language,
           query: store.inputUser
         }
       })
       .then(series => {
         store.listSeries = [];
-        console.log(series.data.results);
         store.listSeries = series.data.results
       })
     }
   },
   mounted(){
-    this.getApi()
+    this.getMoviePopular();
+    this.getSeriesPopular();
   }
 }
 </script>

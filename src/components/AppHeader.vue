@@ -22,7 +22,7 @@ export default {
 
       <div class="search col-4 d-flex">
           <div class="col-8 px-2">
-            <input @keyup.enter="$emit('startSearch')" v-model="store.inputUser" type="text" class="form-control" id="userSearch" placeholder="search">
+            <input @keyup.enter="$emit('startSearch')" v-model.trim="store.inputUser" type="text" class="form-control" id="userSearch" placeholder="search">
           </div>
         <div class="col-4">
           <select id="inputState" class="form-select">
