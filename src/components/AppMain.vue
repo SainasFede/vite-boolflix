@@ -55,7 +55,7 @@ export default {
       :key="id"
       :titolo_originale="movie.original_title"
       :image="movie.poster_path"
-      :titolo="movie.name"
+      :titolo="movie.title"
       :lingua="movie.original_language"
       :voto="movie.vote_average"
       :info="movie.overview"/>

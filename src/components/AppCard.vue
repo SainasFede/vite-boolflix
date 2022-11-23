@@ -58,11 +58,13 @@ export default {
   <div class="boxCard">
     <img class="img-card" :src="getImage" alt="">
     <div class="box-overlay">
-      <h2>{{titolo}}</h2>
-      <h6 v-if="titolo !== titolo_originale">{{titolo_originale}}</h6>
+      <h2 v-if="titolo === titolo_originale">{{titolo}}</h2>
+      <h2 v-if="titolo !== titolo_originale">{{titolo}}</h2>
+      <h5 v-if="titolo !== titolo_originale">Titolo originale : {{titolo_originale}}</h5>
       <p class="flag" :class="getLanguage"><span>{{lingua}}</span></p>
       <star-rating :rating="getVoto" increment="0.1" read-only="true" :show-rating="false" star-size="15"></star-rating>
       <p class="info">{{info}}</p>
+      <button class="btn btn-warning my-4">More Info</button>
     </div>
     
   </div>
@@ -75,6 +77,7 @@ export default {
     width: calc(100% / 4);
     margin-bottom: 20px;
     border-radius: 5px;
+    
   }
   img{
     display: block;
@@ -99,12 +102,12 @@ export default {
     justify-content: center;
     opacity: 0;
     transition: all 1s;
-    h2{
+    h2,h4{
       color: #fcbf49;
     }
     &:hover{
       opacity: 1.5;
-      border: 2px solid #fcbf49;
+      border: 2.5px solid #fcbf49;
       border-radius: 5px;
     }
   }
