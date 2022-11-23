@@ -75,6 +75,10 @@ export default {
       :info="series.overview"/>
     </div>
 
+    <div class="row" v-if="store.listSeries.length === 0 && store.listMovie.length === 0">
+      <h2 class="error">Nessun risultato trovato</h2>
+    </div>
+
   </div>
 </template>
 
@@ -92,6 +96,9 @@ export default {
     h1{
       color: #c1121f;
       padding-bottom: 20px;
+    }
+    .error{
+      color: #c1121f;
     }
   }
 </style>

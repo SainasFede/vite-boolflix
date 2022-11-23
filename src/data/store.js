@@ -10,5 +10,6 @@ export const store = reactive({
   listMovie:[],
   listSeries:[],
   popMovie:[],
-  popSeries:[]
+  popSeries:[],
+  error: 'Nessun Risultato Trovato'
 })

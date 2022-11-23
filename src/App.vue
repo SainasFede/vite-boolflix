@@ -63,6 +63,9 @@ export default {
       store.listMovie = [];
       store.listMovie = movie.data.results;
       })
+      .catch((error) => {
+        this.error
+      })
       axios.get(store.apiUrlSeries, {
         params:{
           language: store.language,
@@ -75,6 +78,9 @@ export default {
         store.popMovie = [];
         store.listSeries = [];
         store.listSeries = series.data.results
+      })
+      .catch((error) => {
+        this.error
       })
     }
   },

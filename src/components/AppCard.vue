@@ -16,6 +16,15 @@ export default {
   components:{
     StarRating
   },
+  data(){
+    return{
+      notLanguage:[
+        'ja',
+        'ko',
+        ''
+      ]
+    }
+  },
   computed:{
     getImage(){
       if(this.image == null){
@@ -28,10 +37,18 @@ export default {
     },
     getLanguage(){
       if(this.lingua === 'en') {
-        return 'fi fi-' + 'gb';
-      }else {
-        return 'fi fi-' + this.lingua;
-      }
+        return 'fi fi-gb';
+      }else if(this.lingua === 'it') {
+        return 'fi fi-it'
+      }else if(this.lingua === 'es') {
+        return 'fi fi-es'
+      }else if(this.lingua === 'de') {
+        return 'fi fi-de'
+      }else if(this.lingua === 'fr') {
+        return 'fi fi-fr'
+      }else if (this.lingua === 'ja') {
+        return 'fi fi-jp'
+      }else return this.lingua
     },
   }
 }
@@ -41,9 +58,9 @@ export default {
   <div class="boxCard">
     <img class="img-card" :src="getImage" alt="">
     <div class="box-overlay">
-      <h4>{{titolo}}</h4>
+      <h2>{{titolo}}</h2>
       <h6 v-if="titolo !== titolo_originale">{{titolo_originale}}</h6>
-      <p class="flag" :class="getLanguage"></p>
+      <p class="flag" :class="getLanguage"><span>{{lingua}}</span></p>
       <star-rating :rating="getVoto" increment="0.1" read-only="true" :show-rating="false" star-size="15"></star-rating>
       <p class="info">{{info}}</p>
     </div>
@@ -67,7 +84,7 @@ export default {
     border-radius: 5px;
   }
   .box-overlay{
-    padding: 10px;
+    padding: 0px 10px ;
     backdrop-filter: blur(8px);
     position: absolute;
     top: 0;
@@ -81,7 +98,10 @@ export default {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.65s;
+    transition: all 1s;
+    h2{
+      color: #fcbf49;
+    }
     &:hover{
       opacity: 1.5;
       border: 2px solid #fcbf49;
@@ -90,11 +110,15 @@ export default {
   }
   .flag{
     padding-top: 20px;
+    span{
+      display: block;
+    }
   }
   .info{
     margin-top: 10px;
     font-size: 13.5px;
     padding: 5px;
     text-align: justify;
+    overflow-y: auto;
   }
 </style>
