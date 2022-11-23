@@ -28,6 +28,7 @@ export default {
         }
       })
       .then(movie => {
+        store.inputUser = '';
         store.popMovie = [];
         store.listMovie = [];
         store.listSeries = [];
@@ -41,6 +42,7 @@ export default {
         }
       })
       .then(series => {
+        store.inputUser = '';
         store.popSeries = [];
         store.listMovie = [];
         store.listSeries = [];
@@ -55,6 +57,7 @@ export default {
         }
       })
       .then(movie => {
+      store.inputUser = '';
       store.popSeries = [];
       store.popMovie = [];
       store.listMovie = [];
@@ -67,6 +70,7 @@ export default {
         }
       })
       .then(series => {
+        store.inputUser = '';
         store.popSeries = [];
         store.popMovie = [];
         store.listSeries = [];

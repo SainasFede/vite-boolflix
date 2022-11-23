@@ -41,8 +41,8 @@ export default {
   <div class="boxCard">
     <img class="img-card" :src="getImage" alt="">
     <div class="box-overlay">
-      <h3>{{titolo}}</h3>
-      <h5 v-if="titolo !== titolo_originale">{{titolo_originale}}</h5>
+      <h4>{{titolo}}</h4>
+      <h6 v-if="titolo !== titolo_originale">{{titolo_originale}}</h6>
       <p class="flag" :class="getLanguage"></p>
       <star-rating :rating="getVoto" increment="0.1" read-only="true" :show-rating="false" star-size="15"></star-rating>
       <p class="info">{{info}}</p>

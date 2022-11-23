@@ -21,7 +21,7 @@ export default {
 
     <div class="row"
     v-if="store.listMovie.length > 0">
-      <h2>Film</h2>
+      <h1>Film</h1>
       <AppCard 
       v-for="(movie, id) in store.listMovie"
       :key="id"
@@ -35,7 +35,7 @@ export default {
 
     <div class="row"
     v-if="store.listSeries.length > 0">
-      <h2>Serie TV</h2>
+      <h1>Serie TV</h1>
       <AppCard 
       v-for="(series, id) in store.listSeries"
       :key="id"

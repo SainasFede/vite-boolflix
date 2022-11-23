@@ -14,26 +14,19 @@ export default {
 
 <template>
   <header>
-    <div class="row">
+    <div class="intro">
 
       <div class="logo">
         <img src="../assets/img/logo-boolflix.png" alt="">
       </div>
 
-      <div class="search col-4 d-flex">
-        <div class="col-2 px-4"><button type="button" @click="$emit('backHome')" class="btn btn-danger btn-text-whi">Home</button></div>
-        <div class="col-6 px-2">
+      <div class="search d-flex">
+        <div class=""><button type="button" @click="$emit('backHome')" class="btn btn-danger btn-text-whi">Home</button></div>
+        <div class="search">
           <input @keyup.enter="$emit('startSearch')" v-model.trim="store.inputUser" type="text" class="form-control" id="userSearch" placeholder="Cerca un film o una serie">
         </div>
-        <div class="col-4 px-2">
-          <select id="inputState" class="form-select">
-            <option selected>Seleziona categoria</option>
-            <option value="serie tv">Film</option>
-            <option value="serie tv">Serie TV</option>
-          </select>
         </div>
       </div>
-    </div>
   </header>
 </template>
 
@@ -42,11 +35,14 @@ export default {
 header{
   margin-bottom: 20px;
 }
-.row{
+.intro{
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.search{
+  margin-left: 10px;
 }
   .logo{
     width: 150px;
