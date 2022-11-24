@@ -39,7 +39,7 @@ export default {
       <AppCard 
       v-for="(series, id) in store.listSeries"
       :key="id"
-      :titolo_originale="series.original_title"
+      :titolo_originale="series.original_name"
       :image="series.poster_path"
       :titolo="series.name"
       :lingua="series.original_language"
@@ -67,7 +67,7 @@ export default {
       <AppCard 
       v-for="(series, id) in store.popSeries"
       :key="id"
-      :titolo_originale="series.original_title"
+      :titolo_originale="series.original_name"
       :image="series.poster_path"
       :titolo="series.name"
       :lingua="series.original_language"
